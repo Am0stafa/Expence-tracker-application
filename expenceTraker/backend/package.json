@@ -4,8 +4,8 @@
   "description": "backend for expence traker",
   "main": "server.js",
   "scripts": {
-  "start": "node server",
-  "server": "nodemon server.js"
+    "start": "node server",
+    "server": "nodemon server.js"
   },
   "author": "abdo mostafa",
   "license": "MIT",
@@ -21,3 +21,4 @@
     "nodemon": "^2.0.16"
   }
 }
+ 
