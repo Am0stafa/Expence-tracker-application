@@ -38,7 +38,7 @@ app.use('/api/v1/transaction',transactionRouter)
 //? MUST BE BELOW THIS ROUTE
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(__dirname + '/dist/Expence-tracker-application'));
+  app.use(express.static(__dirname + '/dist/frontend'));
   app.get('*', function (req, res) {
     const index = path.join(__dirname, 'build', 'index.html');
     res.sendFile(index);
