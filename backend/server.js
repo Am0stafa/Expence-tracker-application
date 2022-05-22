@@ -38,6 +38,7 @@ app.use('/api/v1/transaction',transactionRouter)
 //? MUST BE BELOW THIS ROUTE
 
 if (process.env.NODE_ENV === "production") {
+
   app.use(express.static(path.join(__dirname, "/frontend/build")));
 
   app.get("*", (req, res) =>
