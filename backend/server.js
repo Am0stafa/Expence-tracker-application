@@ -7,9 +7,14 @@ const colors = require('colors');
 //? for logging
 const morgan = require('morgan');
 //? let dotenv know where that file is 
-dotenv.config({path: "./config.env"})
+
 //? bring the file in and mount this router
 const transactionRouter = require('./routes/transactionsRoute')
+
+const path = require('path');
+
+
+dotenv.config({ path: './backend/config.env' });
 
 const app = express();
 
@@ -30,6 +35,21 @@ if(process.env.NODE_ENV === 'development')
   app.use(morgan('dev'));
 
 app.use('/api/v1/transaction',transactionRouter)
-const PORT = process.env.PORT || 6000
+//? MUST BE BELOW THIS ROUTE
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join( "frontend/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
+}
+
+
+const PORT = process.env.PORT || 4000
 app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.green.bold));
 
