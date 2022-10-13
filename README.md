@@ -2,7 +2,7 @@
 
 Application for exploring React Context and Hooks.
 
-![Screenshot](./frontend/src/assets/screenshot.jpg?raw=true "Screenshot")
+![Screenshot](frontend/assets/screenshot.jpeg?raw=true "Screenshot")
 ### Installation Steps
 1. Git clone with HTTPS to your local machine ```https://github.com/JuanCodeAtATime/MERN_expense_tracker.git```.
 2. In root directory, run ```npm install``` in your terminal to install back-end dependencies.  
